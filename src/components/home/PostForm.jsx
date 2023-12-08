@@ -53,7 +53,7 @@ export default function PostForm() {
     if (userInfo) return;
     confirmModal({
       name: 'login',
-      content: 'Login is required.  Would you like to go to the login page',
+      content: 'Login is required. Would you like to go to the login page?',
       confirmLogic: () => {
         navigate('/auth');
       }
