@@ -22,6 +22,10 @@ Soi Kim : Implementing Google, GitHub authentication
 
 21/11/2023 - 27/11/2023
 
+## Original Repository
+Now you are seeing the localization version repository of the project in ENG. If you want to check the original repository of the project, please find the link below.
+[Go to original repository](https://github.com/dygmm4288/team-newsfeed/tree/main)
+
 ## Development Environment
 
 1. React(+ Context API)
