@@ -3,28 +3,28 @@ export default function getErrorContent(code) {
     case 'auth/invalid-login-credentials':
     case 'auth/user-not-found':
     case 'auth/wrong-password':
-      return '이메일 혹은 비밀번호가 일치하지 않습니다.';
+      return 'Email or password does not match.';
 
     case 'auth/network-request-failed':
-      return '네트워크 연결에 실패 하였습니다.';
+      return 'The network connection failed.';
 
     case 'auth/internal-error':
-      return '잘못된 요청입니다.';
+      return 'Invalid request.';
 
     case 'auth/email-already-exists':
     case 'auth/email-already-in-use':
-      return '이메일을 기존 사용자가 이미 사용 중입니다.';
+      return 'The email is already in use by an existing user.';
 
     case 'auth/weak-password':
-      return '비밀번호는 6글자 이상이어야 합니다.';
+      return 'Passwords must be at least 6 characters long.';
 
     case 'auth/invalid-email':
-      return '잘못된 이메일 형식입니다.';
+      return 'Invalid email format.';
 
     case 'auth/account-exists-with-different-credential':
-      return '이미 사용 중인 이메일로 로그인할 수 없습니다. 다른 로그인 방법을 선택해주십시오.';
+      return 'Cannot sign in with an email already in use, please select a different login method.';
 
     default:
-      return '로그인에 실패 하였습니다.';
+      return 'Login failed.';
   }
 }

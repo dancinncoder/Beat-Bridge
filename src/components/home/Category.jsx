@@ -22,7 +22,7 @@ function Category() {
           $selected={!selectedCategory}
           onClick={() => handleNavigateHome('/')}
         >
-          전체보기
+          All
         </StCategoryButton>
         {categories.map((category) => (
           <StCategoryButton

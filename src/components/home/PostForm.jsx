@@ -9,7 +9,7 @@ import useModal from '../../hooks/useModal';
 export default function PostForm() {
   const [searchParams] = useSearchParams();
   const paramCategory = searchParams.get('category');
-  const [category, setCategory] = useState(paramCategory || '발라드');
+  const [category, setCategory] = useState(paramCategory || 'Ballad');
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
 
@@ -25,17 +25,17 @@ export default function PostForm() {
 
     if (!title.trim() || !content.trim()) {
       alertModal({
-        name: '제목과 내용',
-        content: '제목과 내용 모두 입력해주세요💌'
+        name: 'title and content',
+        content: 'Please enter both the title and content💌'
       });
       return;
     }
 
     confirmModal({
       name: 'Beat Up',
-      content: `Beat를 ${
+      content: `Do you want to add a Beat to  '${
         paramCategory || category
-      } 카테고리에 등록하시겠습니까?`,
+      }' category?`,
       confirmLogic: () => {
         createPost({
           title,
@@ -52,8 +52,8 @@ export default function PostForm() {
   const handleFocus = (event) => {
     if (userInfo) return;
     confirmModal({
-      name: '로그인',
-      content: '로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?',
+      name: 'login',
+      content: 'Login is required.  Would you like to go to the login page',
       confirmLogic: () => {
         navigate('/auth');
       }
@@ -62,7 +62,7 @@ export default function PostForm() {
   };
   const checkValidation = (validate, alertMsg) => (value) => {
     if (validate(value)) return true;
-    alertModal({ name: '유효성 검사 실패', content: alertMsg });
+    alertModal({ name: 'Validation Failed', content: alertMsg });
     return false;
   };
 
@@ -82,8 +82,8 @@ export default function PostForm() {
         event.preventDefault();
         event.stopPropagation();
         alertModal({
-          name: '유효성 검사',
-          content: '6줄 이하로 작성해 주세요! 😲'
+          name: 'Validation Check',
+          content: 'Please keep your content to 6 lines or less!'
         });
       }
     }
@@ -95,19 +95,19 @@ export default function PostForm() {
         type="text"
         value={title}
         onChange={handleChangeValue(
-          checkValidation(checkValidateTitle, '제목이 너무 깁니다.'),
+          checkValidation(checkValidateTitle, 'The title is too long.'),
           setTitle
         )}
-        placeholder="제목을 입력해주세요."
+        placeholder="title"
       />
       <StContentTextarea
         type="text"
         value={content}
         onChange={handleChangeValue(
-          checkValidation(checkValidateContent, '내용이 너무 깁니다.'),
+          checkValidation(checkValidateContent, 'The content is too long.'),
           setContent
         )}
-        placeholder="어떤 이야기를 나누고 싶나요?"
+        placeholder="share your stories!"
         onKeyPress={handleTextareaKeyPress}
       />
       <StBeatUpBox>
@@ -134,7 +134,7 @@ export default function PostForm() {
 }
 
 function checkValidateTitle(title) {
-  return title.length <= 22;
+  return title.length <= 40;
 }
 function checkValidateContent(content) {
   return content.length <= 192;

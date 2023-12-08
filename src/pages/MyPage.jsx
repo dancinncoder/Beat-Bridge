@@ -13,7 +13,7 @@ function MyPage() {
 
   useEffect(() => {
     if (!userInfo) {
-      alert('잘못된 접근입니다.');
+      alert('Wrong approach.');
       navigate('/');
       return;
     }
@@ -36,8 +36,8 @@ function MyPage() {
           <StMyPostList>
             {checkEmpty(myPosts) ? (
               <StNoMyPosts onClick={() => navigate('/')}>
-                <p>등록되어 있는 나의 Beat가 없습니다.</p>
-                <p>⚡ 나의 첫 Beat를 Beat Up 해보세요! ⚡</p>
+                <p>There is no any of my Beat shared.</p>
+                <p>⚡ Beat Up Your First Beat! ⚡</p>
               </StNoMyPosts>
             ) : (
               myPosts.map((myPost) => {

@@ -20,8 +20,8 @@ export default function Post({ post }) {
 
   const handleDeletePost = async () => {
     confirmModal({
-      name: '게시글 삭제',
-      content: '정말로 삭제하시겠습니까?',
+      name: 'Delete a post',
+      content: 'Are you sure you want to delete the Beat?',
       confirmLogic: () => {
         deletePost({ postId: post.id });
       }
@@ -37,7 +37,7 @@ export default function Post({ post }) {
 
   const checkValidation = (validate, alertMsg) => (value) => {
     if (validate(value)) return true;
-    alertModal({ name: '유효성 검사 실패', content: alertMsg });
+    alertModal({ name: 'Validation Failed', content: alertMsg });
     return false;
   };
 
@@ -58,8 +58,8 @@ export default function Post({ post }) {
         event.preventDefault();
         event.stopPropagation();
         alertModal({
-          name: '유효성 검사 실패',
-          content: '6줄 이하로 작성해 주세요! 😲'
+          name: 'Validation Failed',
+          content: 'Please keep your content to 6 lines or less!'
         });
       }
     }
@@ -79,14 +79,14 @@ export default function Post({ post }) {
             <input
               value={editedTitle}
               onChange={handleChangeValue(
-                checkValidation(checkValidateTitle, '제목이 너무 깁니다.'),
+                checkValidation(checkValidateTitle, 'The title is too long.'),
                 setEditedTitle
               )}
             ></input>
             <textarea
               value={editedContent}
               onChange={handleChangeValue(
-                checkValidation(checkValidateContent, '내용이 너무 깁니다.'),
+                checkValidation(checkValidateContent, 'The content is too long.'),
                 setEditedContent
               )}
               onKeyPress={handleTextareaKeyPress}
@@ -149,7 +149,7 @@ export default function Post({ post }) {
 }
 
 function checkValidateTitle(title) {
-  return title.length <= 22;
+  return title.length <= 40;
 }
 function checkValidateContent(content) {
   return content.length <= 192;

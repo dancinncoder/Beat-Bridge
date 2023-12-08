@@ -21,8 +21,8 @@ function Main() {
         {isLoading && <SkeletonPost />}
         {!isLoading && checkEmpty(postsFilteredByCategory) ? (
           <StNoPosts>
-            <p>등록되어 있는 Beat가 없습니다.</p>
-            <p>⚡ 카테고리의 첫 Beat를 Beat Up 해보세요! ⚡</p>
+            <p>There are no shared Beats.</p>
+            <p>⚡ Beat Up the first Beat in a category! ⚡</p>
           </StNoPosts>
         ) : (
           postsFilteredByCategory.map((post) => (

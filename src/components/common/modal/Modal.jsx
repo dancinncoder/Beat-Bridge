@@ -38,10 +38,10 @@ export default function Modal() {
           </StModalMain>
           <StModalFooter>
             {openType === TYPE_CONFIRM && (
-              <StConfirmBtn onClick={handleExecuteConfirm}>확인</StConfirmBtn>
+              <StConfirmBtn onClick={handleExecuteConfirm}>Yes</StConfirmBtn>
             )}
             <StCancelBtn onClick={handleCloseModal}>
-              {openType === TYPE_CONFIRM ? '취소' : '확인'}
+              {openType === TYPE_CONFIRM ? 'No' : 'Yes'}
             </StCancelBtn>
           </StModalFooter>
         </StModal>

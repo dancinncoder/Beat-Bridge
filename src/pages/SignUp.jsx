@@ -29,8 +29,8 @@ export default function SignUp() {
     if (confirmPassword !== password) {
       setFormState((prev) => ({ ...prev, password: '', confirmPassword: '' }));
       alertModal({
-        name: '비밀번호 오류',
-        content: '비밀번호가 일치하지 않습니다.'
+        name: 'Password error',
+        content: 'The passwords do not match.'
       });
       return;
     }
@@ -38,7 +38,7 @@ export default function SignUp() {
   };
   useEffect(() => {
     if (!userInfo || error) return;
-    alertModal({ name: '회원가입 성공', content: '회원가입에 성공했습니다.' });
+    alertModal({ name: 'Sign up successfully', content: 'You have successfully signed up.' });
     navigate('/');
   }, [userInfo, error]);
 
@@ -83,12 +83,12 @@ export default function SignUp() {
           <StBtnWrapper>
             <StSignUpBtn>Sign Up</StSignUpBtn>
             <Link to="/auth">
-              <StGoToLogIn>로그인 화면으로 이동</StGoToLogIn>
+              <StGoToLogIn>Login</StGoToLogIn>
             </Link>
           </StBtnWrapper>
         </StFormWrapper>
         <StSignUpRight>
-          <StSignUpImg src={signupImg} alt="사람이 기타를 치고 있는 그림" />
+          <StSignUpImg src={signupImg} alt="A guy playing a guitar" />
         </StSignUpRight>
       </StSignUpWrapper>
     </StContainer>

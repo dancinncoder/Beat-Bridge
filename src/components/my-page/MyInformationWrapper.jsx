@@ -23,19 +23,19 @@ export default function MyInformationWrapper() {
     <StMyInformationContainer>
       <StProfilePicture src={profileImgUrl} />
       <StMyInformation>
-        <StHiMyNickname>안녕하세요, {nickname} 님!</StHiMyNickname>
+        <StHiMyNickname>Hi, {nickname} !</StHiMyNickname>
         {!isEditing ? (
           <StMyInformationDetailsContainer>
             <StMyInformationDetailsSmallContainer>
               <StMyEmail>E-mail:&nbsp;{email}</StMyEmail>
-              <StMyNickName>닉네임:&nbsp;{nickname}</StMyNickName>
+              <StMyNickName>nickname:&nbsp;{nickname}</StMyNickName>
             </StMyInformationDetailsSmallContainer>
             <StButtonSmallContainer>
               <StProfileEditButton onClick={handleSignOut}>
-                로그아웃
+                Sign Out
               </StProfileEditButton>
               <StProfileEditButton onClick={handleToggleEditMode}>
-                프로필 수정
+                Edit Profile
               </StProfileEditButton>
             </StButtonSmallContainer>
           </StMyInformationDetailsContainer>
@@ -46,8 +46,8 @@ export default function MyInformationWrapper() {
             setIsEditing={setIsEditing}
           >
             <StButtonSmallContainer>
-              <StButton onClick={handleToggleEditMode}>취소하기</StButton>
-              <StButton type="submit">변경사항 저장</StButton>
+              <StButton onClick={handleToggleEditMode}>Go back</StButton>
+              <StButton type="submit">Save</StButton>
             </StButtonSmallContainer>
           </MyPageEditForm>
         )}

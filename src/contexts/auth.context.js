@@ -125,7 +125,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     if (!error) return;
     alertModal({
-      name: '오류',
+      name: 'error',
       content: getErrorContent(error.code),
       errorContent: error.code
     });
@@ -158,5 +158,5 @@ export const AuthProvider = ({ children }) => {
 
 export const useAuth = () => useContext(AuthContext);
 function getNicknameWithEmail(email) {
-  return email ? email.split('@')[0] : '닉네임 변경 바람';
+  return email ? email.split('@')[0] : 'Change your nickname';
 }

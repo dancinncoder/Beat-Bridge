@@ -21,7 +21,7 @@ export const executeConfirm = () => ({
   type: EXECUTE_CONFIRM
 });
 
-// 초기 상태
+// initialState
 const initialState = {
   isModalOpen: false,
   openType: 'alert',
@@ -30,7 +30,7 @@ const initialState = {
   errorContent: '',
   confirmLogic: null
 };
-// 리듀서
+// Reducer
 const reducer = createReducer(initialState, {
   [OPEN_ALERT_MODAL]: (state, action) => {
     const { name, content, errorContent } = action.payload;

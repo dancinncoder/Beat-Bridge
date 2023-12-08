@@ -26,7 +26,7 @@ export default function Auth() {
   };
   useEffect(() => {
     if (!userInfo || error) return;
-    alertModal({ name: '로그인 성공', content: '로그인에 성공했습니다.' });
+    alertModal({ name: 'Logged in successfully', content: 'Your are successfully logged in!' });
     navigate('/');
   }, [userInfo, error]);
 
@@ -34,9 +34,9 @@ export default function Auth() {
     <>
       <StContainer>
         <StH1Box>
-          <h1>음악을 사랑하는 사람들의 커뮤니티</h1>
+          <h1>A network of cummunities who love musics.</h1>
           <h1>
-            ⚡ 여러분의 이야기를 <span>Beat Up</span> 해주세요! ⚡
+            ⚡  <span>Beat Up</span> your own stories of music! ⚡
           </h1>
         </StH1Box>
         <StSignInWrapper>
@@ -72,7 +72,7 @@ export default function Auth() {
               </StSignInBtnBox>
               <StGoToSignUpPage>
                 <Link to="/sign-up">
-                  <p>회원가입</p>
+                  <p>Sign Up</p>
                 </Link>
               </StGoToSignUpPage>
             </StSignInForm>

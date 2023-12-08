@@ -20,7 +20,7 @@ export default function MyPageEditForm({
 
   const { alertModal, confirmModal } = useModal();
   const alertModalWithValidate = (content) =>
-    alertModal({ name: '유효성 검사 실패', content });
+    alertModal({ name: 'Validation Failed', content });
 
   const handleFileSelect = (e) => {
     setImgInputValue(e.target.files[0]);
@@ -39,7 +39,7 @@ export default function MyPageEditForm({
         await uploadBytes(imageRef, imgInputValue);
       } catch (e) {
         console.error('error occurred while uploading image to storage', e);
-        alert('이미지를 업로드하는데 실패했습니다.');
+        alert('error occurred while uploading image to storage.');
         return;
       }
       try {
@@ -50,7 +50,7 @@ export default function MyPageEditForm({
           'error occurred while downloading image from storage or setting user profile image url',
           e
         );
-        alert('이미지를 다운로드하는데 실패했습니다.');
+        alert('error occurred while downloading image from storage or setting user profile image url.');
         return;
       }
     }
@@ -67,8 +67,8 @@ export default function MyPageEditForm({
     if (!checkValidation(editedNickname)) return;
 
     confirmModal({
-      name: '프로필 변경',
-      content: '변경 사항을 저장하시겠습니까?',
+      name: 'Edit Profile',
+      content: 'Are you sure you want to save your changes?',
       confirmLogic: () => saveUpdateProfile()
     });
   };
@@ -76,11 +76,11 @@ export default function MyPageEditForm({
   const checkValidation = (nickname) => {
     let content;
     if (nickname.length === 0) {
-      content = '닉네임을 입력해주세요.';
+      content = 'Please enter your nickname.';
     } else if (nickname.length > 10) {
-      content = '닉네임을 10자 이내로 입력해주세요.';
+      content = 'Please enter a nickname of 10 characters or less.';
     } else if (/^\s*$/.test(nickname)) {
-      content = '공백만 입력하셨습니다. 다시 입력해주세요.';
+      content = 'You have entered only spaces. Please enter again.';
     }
     if (content) {
       alertModalWithValidate(content);
@@ -94,7 +94,7 @@ export default function MyPageEditForm({
       <StMyInformationDetailsSmallContainer>
         <StMyEmail>E-mail:&nbsp;{email}</StMyEmail>
         <StNickNameAfter>
-          닉네임:
+          nickname:
           <StNicknameEditInput
             value={editedNickname}
             onChange={handleChangeEditedNickname}
