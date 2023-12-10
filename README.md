@@ -65,7 +65,7 @@ Now you are seeing the localization version repository of the project in ENG. If
 
 ## Deployment
 
-[https:/beat-bridge.store](https://beat-bridge.vercel.app/)
+https://beatbridge-eta.vercel.app/
 
 ## Built With
 
