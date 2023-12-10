@@ -89,7 +89,7 @@ const StContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
 `;
 
 const StH1Box = styled.div`
@@ -117,6 +117,7 @@ const StSignInWrapper = styled.div`
   background-color: #2c2c2c;
   border: none;
   box-shadow: 3px 3px 8px black;
+  margin: 17rem auto auto auto;
 `;
 
 const StSignInLeft = styled.form`
